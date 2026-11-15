@@ -1,0 +1,27 @@
+@font-face {
+    font-display: swap;
+    font-family: 'openSans';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/schriftart/static/OpenSans-Regular.ttf')
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'openSans';
+    font-style: normal;
+    font-weight: bold;
+    src: url('./assets/schriftart/static/OpenSans-Bold.ttf')
+}
+
+:root {
+    --bgcolor: #121922;
+    --headercolor: rgb(33, 40, 66);
+    --bookcolor: rgb(69, 101, 131);
+    --fontcolor: #c5d1e0;   
+
+    --mainfontsize: clamp(16px, 2.2vw, 24px);
+    --h1fontsize: clamp(40px, 6vw, 64px);
+    --h2fontsize: clamp(40px, 5vw, 52px);
+}
+

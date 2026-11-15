@@ -3,10 +3,100 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: "openSans";
+    color: var(--fontcolor);
+    background-color: var(--bgcolor);
+}
+
+
 header{
-    background-color: beige;
+    background-color: var(--headercolor);
     width: 100%;
     
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+header p{
+    font-weight: bold;
+    font-size: ;
+    padding-block: 1%;
+}
+
+#bookContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+}
+
+.bookCard {
+    width: 40%;
+    max-width: 100%;
+    background-color: #103443;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.bookCard h2{
+    text-align: center;
+    padding: 16px;
+    border-bottom: 2px solid #4b98b2;
+    font-size: 20px;
+}
+
+.bookImage {
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #15485a;
+    font-size: 80px;
+    border-bottom: 2px solid #4b98b2;
+}
+
+.bookInfo {
+    padding: 16px;
+    border-bottom: 2px solid #4b98b2;
+}
+
+.priceLikes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.priceLikes span:first-child {
+    color: #ff6666;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bookInfo p {
+    margin: 5px 0;
+}
+
+.comments {
+    padding: 16px;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.comment {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.bookCard input {
+    width: calc(100% - 32px);
+    margin: 0 16px 16px;
+    padding: 8px;
+    box-sizing: border-box;
+    background: #15485a;
+    color: white;
+    border: none;
 }
