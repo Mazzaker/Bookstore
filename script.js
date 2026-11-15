@@ -17,39 +17,48 @@ function renderContent() {
 function bookTemplate(book, index) {
     return `
         <div class="bookCard">
-
             <h2>${book.name}</h2>
+            <div class="bookImage">📕</div>
+            ${bookInfoTemplate(book, index)}
+            ${bookCommentsTemplate(book, index)}
+        </div>
+    `;
+}
 
-            <div class="bookImage">
-                📕
+function bookInfoTemplate(book, index) {
+    return `
+        <div class="bookInfo">
+            <div class="priceLikes">
+                <span>${book.price.toFixed(2).replace(".", ",")} €</span>
+                ${likeTemplate(book, index)}
             </div>
+            <p>Autor: ${book.author}</p>
+            <p>Erscheinungsjahr: ${book.publishedYear}</p>
+            <p>Genre: ${book.genre}</p>
+        </div>
+    `;
+}
 
-            <div class="bookInfo">
+function likeTemplate(book, index) {
+    return `
+        <div class="likeButton">
+            <p>${book.likes}</p>
+            <button onclick="toggleLike(${index})">
+                <img src="assets/icons/${book.liked ? 'liked.png' : 'unliked.png'}" alt="Like">
+            </button>
+        </div>
+    `;
+}
 
-                <div class="priceLikes">
-                    <span>${book.price.toFixed(2).replace(".", ",")} €</span>
-                    <div class="likeButton">
-                        <p>${book.likes}</p>
-                        <button onclick="toggleLike(${index})">
-                            <img src="assets/icons/${book.liked ? 'liked.png' : 'unliked.png'}" alt="Like">
-                        </button>
-                    </div>
-                </div>
-
-                <p>Autor: ${book.author}</p>
-                <p>Erscheinungsjahr: ${book.publishedYear}</p>
-                <p>Genre: ${book.genre}</p>
-
-            </div>
-
-            <div class="comments">
-                <h3>Kommentare:</h3>
-                ${commentsTemplate(book.comments)}
-            </div>
-            <div class="commentInput">
-                <input id="commentInput${index}" type="text" placeholder="Schreibe deinen Kommentar...">
-                <button onclick="addComment(${index})">Senden</button>
-            </div>
+function bookCommentsTemplate(book, index) {
+    return `
+        <div class="comments">
+            <h3>Kommentare:</h3>
+            ${commentsTemplate(book.comments)}
+        </div>
+        <div class="commentInput">
+            <input id="commentInput${index}" type="text" placeholder="Schreibe deinen Kommentar...">
+            <button onclick="addComment(${index})">Senden</button>
         </div>
     `;
 }
@@ -78,5 +87,18 @@ function addComment(index) {
         });
     
     renderContent()
+}
+
+function toggleLike(index) {
+    books[index].liked = !books[index].liked;
+
+    if (books[index].liked) {
+        books[index].likes++;
+    } 
+    else {
+        books[index].likes--;
+    }
+
+    renderContent();
 }
 
