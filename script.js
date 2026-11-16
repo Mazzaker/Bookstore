@@ -18,7 +18,9 @@ function bookTemplate(book, index) {
     return `
         <div class="bookCard">
             <h2>${book.name}</h2>
-            <div class="bookImage">📕</div>
+            <div class="bookImage">
+                <img src="./assets/icons/buchicon.png" alt="buchicon">
+            </div>
             ${bookInfoTemplate(book, index)}
             ${bookCommentsTemplate(book, index)}
         </div>
